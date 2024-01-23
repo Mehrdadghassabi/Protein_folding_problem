@@ -1,0 +1,36 @@
+{
+  "metadata": {
+    "name": "Ouyang 2009 (131 calibrated set)",
+    "method": "eem",
+    "publication": "10.1039/b821696g"
+  },
+  "common": {
+    "names": ["kappa"],
+    "values": [1.0]
+  },
+  "atom": {
+    "names": ["A", "B"],
+    "data": [
+      {
+        "key": ["C", "plain", "*"],
+        "value": [17.5373, 2.2393]
+      },
+      {
+        "key": ["F", "plain", "*"],
+        "value": [19.4129, 5.5822]
+      },
+      {
+        "key": ["H", "plain", "*"],
+        "value": [17.1039, 1.2996]
+      },
+      {
+        "key": ["N", "plain", "*"],
+        "value": [17.8048, 1.4128]
+      },
+      {
+        "key": ["O", "plain", "*"],
+        "value": [18.6226, 2.4894]
+      }
+    ]
+  }
+}
