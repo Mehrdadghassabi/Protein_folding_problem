@@ -1,0 +1,2 @@
+/usr/bin/ar qc libchargefw2.a CMakeFiles/libchargefw2.dir/element.cpp.o CMakeFiles/libchargefw2.dir/method.cpp.o CMakeFiles/libchargefw2.dir/parameters.cpp.o CMakeFiles/libchargefw2.dir/structures/molecule.cpp.o CMakeFiles/libchargefw2.dir/geometry.cpp.o CMakeFiles/libchargefw2.dir/periodic_table.cpp.o
+/usr/bin/ranlib libchargefw2.a
