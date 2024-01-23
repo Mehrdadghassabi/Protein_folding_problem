@@ -1,2 +1,0 @@
-"/usr/bin/gcc-ar-11" cr libstructures.a CMakeFiles/structures.dir/atom.cpp.o CMakeFiles/structures.dir/molecule.cpp.o CMakeFiles/structures.dir/molecule_set.cpp.o CMakeFiles/structures.dir/bond.cpp.o
-"/usr/bin/gcc-ranlib-11" libstructures.a

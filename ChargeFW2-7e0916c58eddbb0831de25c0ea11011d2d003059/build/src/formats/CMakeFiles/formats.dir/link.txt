@@ -1,2 +1,0 @@
-"/usr/bin/gcc-ar-11" cr libformats.a CMakeFiles/formats.dir/sdf.cpp.o CMakeFiles/formats.dir/mol2.cpp.o CMakeFiles/formats.dir/pdb.cpp.o CMakeFiles/formats.dir/mmcif.cpp.o CMakeFiles/formats.dir/bonds.cpp.o CMakeFiles/formats.dir/reader.cpp.o CMakeFiles/formats.dir/writer.cpp.o CMakeFiles/formats.dir/txt.cpp.o CMakeFiles/formats.dir/pqr.cpp.o CMakeFiles/formats.dir/common.cpp.o CMakeFiles/formats.dir/cif.cpp.o
-"/usr/bin/gcc-ranlib-11" libformats.a

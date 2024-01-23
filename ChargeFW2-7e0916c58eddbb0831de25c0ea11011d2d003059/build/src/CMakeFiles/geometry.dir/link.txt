@@ -1,2 +1,0 @@
-"/usr/bin/gcc-ar-11" cr libgeometry.a CMakeFiles/geometry.dir/geometry.cpp.o
-"/usr/bin/gcc-ranlib-11" libgeometry.a

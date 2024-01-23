@@ -1,2 +1,0 @@
-"/usr/bin/gcc-ar-11" cr libutility.a CMakeFiles/utility.dir/strings.cpp.o
-"/usr/bin/gcc-ranlib-11" libutility.a
