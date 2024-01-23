@@ -1,0 +1,2 @@
+"/usr/bin/gcc-ar-11" cr liblhs.a CMakeFiles/lhs.dir/latin_random.cpp.o
+"/usr/bin/gcc-ranlib-11" liblhs.a
