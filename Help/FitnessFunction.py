@@ -1,3 +1,5 @@
+
+
 from AminoAcidsControl import AminoAcis
 from ReadAminoAcidJsonFileExceptForTrp import *
 import chargefw2_python
@@ -7,9 +9,8 @@ from ReadAtomProperties import AtomProperties
 from PreprocessOnCombinationsAtom import PreProcessOnCombinaions
 import pandas as pd
 import CaculateEnergyLib.ecalc as e
-import random
-
-
+import time
+import copy
 class FitnessFunction:
     def __init__(self, SequenceOfAminoObjects=[], 
                  ResNames=[]):
@@ -44,12 +45,20 @@ class FitnessFunction:
             for SulfureIndex in self.AminoAcisobj.GiveMeAllSulfursOfThisAminoId(AminoId):
                 for SIndex in self.AminoAcisobj.GiveMeAllPossibleSulfurIndexCombinationFromThisAminoId(AminoId):
                     self.HowManyCombinationsCanWeHaveForSulfur+=1
+        self.Combinations = []  
+        for i in self.SequenceOfAminoObjects:
+            self.Combinations.append(i.AtomsCombination)
     def TempInput(self, ):
         return [0]*self.HowManyCombinationsCanWeHave, [0]*6*len(self.SequenceOfAminoObjects)
     def TempInputForSulfur(self, ):
         return [0]*self.HowManyCombinationsCanWeHaveForSulfur
-    def caculateEnergy(self, Combinations, DeltaPosition, SulfurCombinations=[]):
-        destinationPDBFileName = str(Combinations)+str(DeltaPosition)+".pdb"
+    def caculateEnergy(self, Combinations, DeltaPosition, SulfurCombinations=[], outputSave=False):
+           
+        combintionIndex = -1
+        for i in self.SequenceOfAminoObjects:
+            combintionIndex+=1
+            i.AtomsCombination = copy.deepcopy(self.Combinations[combintionIndex])
+        destinationPDBFileName = f"{str(hash(str(Combinations)+str(DeltaPosition)))}.pdb"
         index = -1
         AminoAcidsObjects = self.SequenceOfAminoObjects
         for AminoIdForNitrogen in range(1, len(self.SequenceOfAminoObjects)+1):
@@ -107,6 +116,8 @@ class FitnessFunction:
                                         self.ResNames)
         molecules = chargefw2_python.Molecules(destinationPDBFileName)
         charges_sqeqp = chargefw2_python.calculate_charges(molecules, 'sqeqp', 'SQEqp_10_Schindler2021_CCD_gen')
+        
+        
         for i in charges_sqeqp:
             charges_sqeqp = charges_sqeqp[i]
         try:
@@ -147,35 +158,8 @@ class FitnessFunction:
             "Combined": Combined
         }
         df = pd.DataFrame(ProteinBigProps)
+        if outputSave:
+            df.to_csv("/Libraries/protein-dataFrame.csv")
         protein_energy, vdw_energies, solvation_energies = e.energy(df)
         return protein_energy
         
-        
-if __name__=="__main__":
-    with open("AminoAcids/M.json", 'r') as file:
-        json_data = file.read()
-    data = json.loads(json_data)
-    M_Amino = ReadJsonFile(data)
-    
-    with open("AminoAcids/F.json", 'r') as file:
-        json_data = file.read()
-    data = json.loads(json_data)
-    F_Amino = ReadJsonFile(data)
-    with open("AminoAcids/K.json", 'r') as file:
-        json_data = file.read()
-    data = json.loads(json_data)
-    K_Amino = ReadJsonFile(data)
-    with open("AminoAcids/C.json", 'r') as file:
-        json_data = file.read()
-    data = json.loads(json_data)
-    C_Amino = ReadJsonFile(data)
-    ResNames = ["Met", "Phe", "Lys", "Cys"]
-    FitnessFunctionObj = FitnessFunction(\
-                    [M_Amino, F_Amino, K_Amino, C_Amino], ResNames)
-    HowTheyCombined, HowRotationAndDeltaOccured = FitnessFunctionObj.TempInput()
-    HowSulfurCombined = FitnessFunctionObj.TempInputForSulfur()
-    print(HowTheyCombined, HowRotationAndDeltaOccured)
-    print(HowSulfurCombined)
-    HowTheyCombined = [0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0] 
-    HowRotationAndDeltaOccured = [65, 70, 300, 200, 10, 20, 110, 230, 300, 20, 20, 600, 290, 120, 260, 100, 290, 600, 100, 220, 190, 700, 400, 120]
-    print(FitnessFunctionObj.caculateEnergy(HowTheyCombined, HowRotationAndDeltaOccured, SulfurCombinations=HowSulfurCombined))
