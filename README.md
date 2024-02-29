@@ -10,7 +10,7 @@ and together with files in this repository put them in a directory then load the
     cd Libraries/
     cd Help/
 ```
-then run main.py
+and run main.py
 ```
     python3 main.py
 ```
