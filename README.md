@@ -7,8 +7,9 @@ Understanding protein folding has broad implications for drug development, struc
 Experimental and computational methods are employed to study protein folding,
 but accurately predicting structures from sequences remains a complex and unsolved problem with significant implications for biology and medicine.
 
-here it is a list of important amino-acids in this <a href=http://cup.uni-muenchen.de/ch/compchem/tink/as.html> link </a>
-this repository use genetic algorithm to solve this problem
+here it is a list of important amino-acids in this <a href=http://cup.uni-muenchen.de/ch/compchem/tink/as.html> link </a> ,
+choose the amino-acids you want to use and download its jason from this <a href=https://pubchem.ncbi.nlm.nih.gov/compound/tyrosine> link </a>
+and put jasons in this <a href=https://github.com/Mehrdadghassabi/Protein_folding_problem/tree/main/Help/AminoAcids> directory </a>
 # Run 
 download files in this link
 https://drive.google.com/file/d/1pYKXACVMCKPd5nOSfTGSqNLNgEauYnuh/view?usp=sharing
