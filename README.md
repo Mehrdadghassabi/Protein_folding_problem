@@ -34,6 +34,8 @@ and run main.py
 your molecule would be saved as a .pdb file in this <a href=https://github.com/Mehrdadghassabi/Protein_folding_problem/tree/main/Help> directory </a>
 if you want to see how does your molecule look like upload your .pdb file in <a href=https://github.com/Mehrdadghassabi/Protein_folding_problem/blob/main/Show_molecule.ipynb> this </a>
 jupyter notebook and run it!
+
+
 ![Screenshot from 2024-03-01 05-22-11](https://github.com/Mehrdadghassabi/Protein_folding_problem/assets/53050138/726dd495-9a98-4b4c-8769-29c7bab088f0)
 
 
