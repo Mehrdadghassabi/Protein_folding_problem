@@ -17,7 +17,7 @@ for solving this problem we used genetic algorithm,
 having 3 population (HowSulfurCombined,HowTheyCombined,HowRotationAndDeltaOccured) we used linear multi-population optimization.
 
 # Run 
-to find your optimized molecule download files in this <a href=https://drive.google.com/file/d/1FOJM5Ccsm55RCtfjrLUPd-e0oTrZDDwY/view?usp=sharing> link </a>
+to find your optimized molecule download files in this link (https://drive.google.com/file/d/1FOJM5Ccsm55RCtfjrLUPd-e0oTrZDDwY/view?usp=sharing)
 and together with files in this repository put them in a directory then load the docker image
 ```
     sudo docker load < HW2Image
